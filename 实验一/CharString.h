@@ -31,7 +31,6 @@ public:
 	CharString operator+(const CharString & stringToPlus);
 	CharString operator+(wchar_t charToPlus);
 	friend wostream& operator << (wostream& outputStream, CharString& outputString);
-	void print();
 };
 
 #endif

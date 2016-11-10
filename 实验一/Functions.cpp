@@ -2,6 +2,8 @@
 #include "Stack.cpp"
 #include <io.h>
 
+#define REMOVE_SINGLE_WORD
+
 using namespace std;
 
 FileInfo extractInfo(const char* fileName)
@@ -92,7 +94,10 @@ FileInfo extractInfo(const char* fileName)
 					}
 					if (tmpClassName == L"author")
 					{
-						while (tmpText.getData()[tmpText.getLength() - 1] < 19968 || tmpText.getData()[tmpText.getLength() - 1] > 40869)
+						while (!((tmpText.getData()[tmpText.getLength() - 1] >= 19968 && tmpText.getData()[tmpText.getLength() - 1] <= 40869)
+							|| (tmpText.getData()[tmpText.getLength() - 1] >= 65 && tmpText.getData()[tmpText.getLength() - 1] <= 90)
+							|| (tmpText.getData()[tmpText.getLength() - 1] >= 97 && tmpText.getData()[tmpText.getLength() - 1] <= 122)
+							))
 							tmpText = tmpText.substring(0, tmpText.getLength() - 2);
 						fileInformation.author = tmpText;
 					}
@@ -202,8 +207,13 @@ CharStringLink * divideWords(const CharString & fileText, const dicTree* Dic)
 		{
 			CharString tmpString;
 			tmpString = topNode.curString + topNode.curNode->character;
+#ifdef REMOVE_SINGLE_WORD
 			if (tmpString.getLength() > 1)
 				ansLink->add(tmpString);
+#else
+			ansLink->add(tmpString);
+#endif // REMOVE_SINGLE_WORD
+				
 		}
 		else
 		{

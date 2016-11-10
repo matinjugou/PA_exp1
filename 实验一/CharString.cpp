@@ -233,10 +233,6 @@ CharString CharString::operator+(wchar_t charToPlus)
 	return tmpString;
 }
 
-void CharString::print()
-{
-	std::cout << data;
-}
 
 wostream & operator<<(wostream & outputStream, CharString & outputString)
 {
