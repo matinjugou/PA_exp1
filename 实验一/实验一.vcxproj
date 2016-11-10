@@ -146,6 +146,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CharString.h" />
+    <ClInclude Include="CharStringLink.h" />
+    <ClInclude Include="Functions.h" />
+    <ClInclude Include="Stack.h" />
+    <ClInclude Include="Trie.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CharString.cpp" />
+    <ClCompile Include="CharStringLink.cpp" />
+    <ClCompile Include="Functions.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Stack.cpp" />
+    <ClCompile Include="Trie.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
